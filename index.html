@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="jv"
+<head>
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Wilangan Jawa</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="splasScreen" class="screen">
+         <div class="splash-content">
+            <div class="Jawa-Logo">ꦩꦱ꧀ꦠꦼꦂꦮꦶꦭꦁꦔꦤ꧀ꦘꦮ</div>
+            <h1>MASTER WILANGAN JAWA</h1>
+            <p>Sinau Wilangan kanthi Ceria</p>
+            <div class="loading-bar">
+                <div class="loading-proses"></div>
+            </div>
+         </div>
+    </div>
+<div id="mainMenu" class="screen hidden">
+    <div class="menu-container">
+        <h2>ꦩꦼꦤꦸ</h2>
+        <div class="menu-grid">
+            <div class="menu-item" onclick="showScreen('pustakaScreen')">
+                <div class="menu-icon">📚</div>
+                <span> PUSTAKA WILANGAN</span>
+            </div>
+            <div class="menu-item" onclick="showScreen('gladhenDasarScreen')">
+                <div class="menu-icon">🎯</div>
+                <span>GLADHEN DASAR</span>
+            </div>
+            <div class="menu-item" onclick="showScreen('gladhenNulisScreen')">
+                <div class="menu-icon">✍</div>
+                <span>GLADHEN NULIS</span>
+            </div>
+            <div class="menu-item" onclick="showScreen('gladhenCermatScreen')">
+                <div class="menu-icon">⚡</div>
+               <span>GLADHEN CERMAT</span>
+            </div>
+            <div class="menu-item" onclick="showScreen('statistikScreen')">
+               <div class="menu-icon">📊</div>
+                <span>STATISTIK</span>
+            </div>
+            <div class="menu-item" onclick="showScreen('aboutScreen')">
+                <div class="menu-icon">ℹ</div>
+                <span>TENTANG</span>
+        </div>
+    </div>
+</div>
+</div>
+<div id="pustakaScreen" class="screen hidden">
+    <div class="header">
+        <button class="back-btn" onclick="showScreen('mainMenu')">⬅️</button>
+        <h2>📚 PUSTAKA WILANGAN</h2>
+    </div>
+    <div class="content">
+        <div class="tab-container">
+            <div class="tabs">
+                <button class="tab active" onclick="showTab('dasar')">Dasar (0-9)</button>
+                <button class="tab" onclick="showTab('puluhan')">puluhan (10-99)</button>
+                <button class="tab" onclick="showTab('aturan')">aturan</button>
+            </div>
+<div id="dasar" class="tab-content active">
+    <div class="Wilangan-grid">
+    </div>
+</div>
+<div id="puluhan" class="tab-content">
+    <div class="puluhan-grid">
+    </div>
+</div>
+<div id="aturan" class="tab-content">
+    <h3>ꦥꦲꦸꦒꦼꦫꦤ꧀ꦥꦚꦼꦫꦠ꧀ꦠꦤ꧀</h3>
+    <div class="rules">
+        <div class="rule-item">
+            <div class="rule-number">1</div>
+            <p>penulisan angka diapit oleh pada pangkat <strong>꧇ ꧇</strong></p>
+        </div>
+        <div class="rule-item">
+            <div class="rule-number">2</div>
+            <p>tuladha: 25 = <strong>꧈꧒꧕꧈</strong></p>
+        </div>
+    </div>
+</div>
+        </div>
+    </div>
+</div>
+<div id="gladhenCermatScreen" class="screen hidden">
+    <div class="header">
+        <button class="back-btn" onclick="showScreen('mainMenu')">⬅️</button>
+        <h2>🎯 GLADHEN DASAR</h2>
+        <div class="quiz-progres">
+            <span id="currentQuestion">1</span>/<span id="totalQuestions">5</span>
+        </div>
+    </div>
+<div class="content">
+    <div id="quizContent">
+    </div>
+</div>
+</div>
+<div id="gladhenNulisScreen" class="screen hidden">
+    <div class="header">
+        <button class="back-btn" onclick="showScreen('mainMenu')">⬅️</button>
+        <h2>✍ GLADHEN NULIS</h2>
+    </div>
+    <div class="content">
+        <div class="writing-container">
+            <div class="writing-prompt">
+                <h3 id="writingQuestion">aku duwe kebo 5</h3>
+                <div class="reference">ꦲꦏꦸꦢꦸꦮꦺꦏꦼꦧꦺꦴꦭꦶꦩ</div>
+            </div>
+            <canvas id="writingCanvas" width="400" height="200"></canvas>
+            <div class="writing-control">
+                <button onclick="clearCsnvsd()">🔁 Reset</button>
+                <button onclick="checkWriting()">✅ periksa</button>
+                <button onclick="showAnswer()">🔍 lihat jawaban</button>
+            </div>
+            <div id="writingFeedback" class="feedback"></div>
+        </div>
+    </div>
+</div>
+<div id="statistikScreen" class="screen hidden">
+        <div class="header">
+            <button class="back-btn" onclick="showScreen('mainMenu')">⬅</button>
+            <h2>📊 STATISTIK PRESTASI</h2>
+        </div>
+        <div class="content">
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-value" id="totalPlayed">0</div>
+                    <div class="stat-label">Total Main</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="averageScore">0%</div>
+                    <div class="stat-label">Rata-rata</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="completedLevels">0</div>
+                    <div class="stat-label">Level Rampung</div>
+                </div>
+            </div>
+            
+            <div class="achievements">
+                <h3>Prestasi</h3>
+                <div class="achievement-list">
+                    <div class="achievement" data-achieved="true">
+                        <span class="achievement-icon">🥚</span>
+                        <span class="achievement-text">Pemula Wilangan</span>
+                    </div>
+                    <div class="achievement" data-achieved="false">
+                        <span class="achievement-icon">🐣</span>
+                        <span class="achievement-text">Jago 1-20</span>
+                    </div>
+                    <div class="achievement" data-achieved="false">
+                        <span class="achievement-icon">🐓</span>
+                        <span class="achievement-text">Master Wilangan</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Screen -->
+    <div id="aboutScreen" class="screen hidden">
+        <div class="header">
+            <button class="back-btn" onclick="showScreen('mainMenu')">⬅</button>
+            <h2>ℹ TENTANG APLIKASI</h2>
+        </div>
+        <div class="content">
+            <div class="about-content">
+                <h3>Master Wilangan Jawa</h3>
+                <p>Aplikasi media pembelajaran digital untuk mempelajari Aksara Jawa Wilangan dengan cara yang menyenangkan dan interaktif.</p>
+                
+                <div class="kompetensi">
+                    <h4> ꦏꦺꦴꦩ꧀ꦥꦼꦠꦺꦤ꧀ꦱꦶ</h4>
+                    <ul>
+                        <li>Mengenal simbol Aksara Wilangan 0-99</li>
+                        <li>Menerjemahkan tulisan latin berangka ke aksara jawa </li>
+                        <li>Menulis wilangan dengan urutan benar</li>
+                        <li>Mengaplikasikan dalam konteks sehari-hari</li>
+                    </ul>
+                </div>
+                
+                <div class="developer-info">
+                    <p><strong>Dikembangkan oleh:</strong> Adjihad Fachrul Al Fajri</p>
+                    <p><strong>NIM:</strong> 24020230028</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audio Elements -->
+    <audio id="correctSound" src="https://assets.mixkit.co/sfx/preview/mixkit-correct-answer-tone-2870.mp3"></audio>
+    <audio id="wrongSound" src="https://assets.mixkit.co/sfx/preview/mixkit-wrong-answer-fail-notification-946.mp3"></audio>
+    <audio id="winSound" src="https://assets.mixkit.co/sfx/preview/mixkit-winning-chimes-2015.mp3"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
